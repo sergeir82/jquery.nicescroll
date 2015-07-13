@@ -631,8 +631,8 @@
       if (!self.viewport) return ww;      
       var vp = self.viewport.offset();
       return {
-        top: ww.top - vp.top,// + self.viewport.scrollTop(),
-        left: ww.left - vp.left // + self.viewport.scrollLeft()
+        top: ww.top - vp.top + self.viewport.scrollTop(),
+        left: ww.left - vp.left + self.viewport.scrollLeft()
       };
     };
 
