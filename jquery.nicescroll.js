@@ -385,6 +385,8 @@
       self.delaylist[name] = fn;
       if (!dd) {
         setTimeout(function() {
+          if (!self) return;
+
           var fn = self.delaylist[name];
           self.delaylist[name] = false;
           fn.call(self);
@@ -3569,7 +3571,7 @@
       e[n] = function() {
         var args = arguments;
         return this.each(function() {
-          this[n].apply(this, args);
+          this && this[n].apply(this, args);
         });
       };
     }
